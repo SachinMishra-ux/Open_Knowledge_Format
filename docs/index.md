@@ -9,6 +9,14 @@ By standardizing database schemas, collections, documentation, playbooks, and AP
 
 ---
 
+## 🧩 RAG Pipeline Integration Flow
+
+`google-okf` acts as the ingestion and semantic translation layer in your intelligence stack:
+
+![RAG Pipeline Diagram](img/rag_pipeline_diagram.png)
+
+---
+
 ## Getting Started
 
 ### Installation

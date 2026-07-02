@@ -1,4 +1,4 @@
-__version__ = "0.1.6"
+__version__ = "0.1.3"
 
 from google_okf.core import (
     Concept,

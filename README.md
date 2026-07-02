@@ -26,7 +26,7 @@ Standard RAG pipelines often struggle with raw data ingestion. Extracting text f
 `google-okf` acts as the **Ingestion & Semantic Translation Layer** before the chunking and embedding steps. By converting raw data sources into a structured directory of Markdown files with rich YAML metadata and cross-referenced hyperlinks, it enables **Metadata-RAG (filtered search)** and **Graph-RAG (traversing relational entities)**.
 
 ### RAG Pipeline Ingestion Flow:
-![RAG Pipeline Diagram](resources/rag_pipeline_diagram.png)
+![RAG Pipeline Diagram](https://raw.githubusercontent.com/SachinMishra-ux/Open_Knowledge_Format/main/resources/rag_pipeline_diagram.png)
 
 ---
 
