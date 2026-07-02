@@ -22,12 +22,6 @@ classifiers = [
     "Topic :: Database :: Database Engines/Servers"
 ]
 keywords = ["google", "okf", "open-knowledge-format", "rag", "database", "parser", "producer"]
-
-[project.urls]
-Homepage = "https://github.com/SachinMishra-ux/Open_Knowledge_Format"
-Repository = "https://github.com/SachinMishra-ux/Open_Knowledge_Format"
-"Bug Tracker" = "https://github.com/SachinMishra-ux/Open_Knowledge_Format/issues"
-
 dependencies = [
     "pydantic>=2.0.0",
     "pyyaml>=6.0.0",
@@ -39,6 +33,11 @@ dependencies = [
     "python-docx>=1.0.0",
     "cryptography>=3.1.0"
 ]
+
+[project.urls]
+Homepage = "https://github.com/SachinMishra-ux/Open_Knowledge_Format"
+Repository = "https://github.com/SachinMishra-ux/Open_Knowledge_Format"
+"Bug Tracker" = "https://github.com/SachinMishra-ux/Open_Knowledge_Format/issues"
 
 [project.scripts]
 google-okf = "google_okf.cli:cli"
