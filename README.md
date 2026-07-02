@@ -1,12 +1,32 @@
 # google-okf
 
 [![PyPI version](https://img.shields.io/pypi/v/google-okf.svg)](https://pypi.org/project/google-okf/)
-[![Python versions](https://img.shields.io/pypi/pyversions/google-okf.svg)](https://pypi.org/project/google-okf/)
+[![CI Testing](https://github.com/SachinMishra-ux/Open_Knowledge_Format/actions/workflows/ci.yml/badge.svg)](https://github.com/SachinMishra-ux/Open_Knowledge_Format/actions/workflows/ci.yml)
+[![Python versions](https://img.shields.io/badge/python-3.12%20%7C%203.13%20%7C%203.14%20%7C%203.15-blue.svg)](https://pypi.org/project/google-okf/)
+[![Platforms](https://img.shields.io/badge/platform-linux%20%7C%20macos%20%7C%20windows-lightgrey.svg)](https://github.com/SachinMishra-ux/Open_Knowledge_Format/actions)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 `google-okf` is a production-grade, open-source Python library designed to automatically connect to various enterprise data sources and convert them into the standard **Google Open Knowledge Format (OKF)**. 
 
 By standardizing database schemas, collections, documentation, playbooks, and APIs into clean Markdown files with structured YAML frontmatter, `google-okf` acts as the critical intermediate context-assembly layer for Retrieval-Augmented Generation (RAG) pipelines and agentic AI systems.
+
+---
+
+## 📚 Interactive Documentation
+
+For detailed installation guides, programmatic APIs, and configuration references:
+👉 **[google-okf Documentation Site](https://sachinmishra-ux.github.io/Open_Knowledge_Format/)**
+
+---
+
+## 🧩 Role in the RAG Pipeline
+
+Standard RAG pipelines often struggle with raw data ingestion. Extracting text from documents or querying database schemas directly yields fragmented, unstructured contexts that degrade LLM retrieval accuracy.
+
+`google-okf` acts as the **Ingestion & Semantic Translation Layer** before the chunking and embedding steps. By converting raw data sources into a structured directory of Markdown files with rich YAML metadata and cross-referenced hyperlinks, it enables **Metadata-RAG (filtered search)** and **Graph-RAG (traversing relational entities)**.
+
+### RAG Pipeline Ingestion Flow:
+![RAG Pipeline Diagram](resources/rag_pipeline_diagram.png)
 
 ---
 
@@ -19,13 +39,28 @@ The **Open Knowledge Format (OKF v0.1)** is an open, vendor-neutral standard int
 
 ---
 
-## Features
+## ⚡ Highlighted Features
 
-* **BaseProducer Interface**: Simple, abstract class to write custom connectors for any internal system.
-* **Flat File Connector**: Imports a directory of documents (PDFs, DOCX, Markdown, TXT), extracts text, and maps them to OKF concepts.
-* **SQL Database Connector**: Connects to relational databases (MySQL, PostgreSQL, SQLite, etc. using SQLAlchemy) and auto-generates Markdown schemas with interactive cross-referenced links for foreign key relationships.
-* **MongoDB NoSQL Connector**: Connects to MongoDB, samples collection documents, dynamically infers schema structures, and generates collection concepts.
-* **CLI Tool (`google-okf`)**: Initialize bundles, run producers, and validate/lint OKF link consistency.
+* **🔌 Flat File Connector (`DocumentProducer`)**:
+  * Extracts raw text from **PDF**, **DOCX**, **Markdown**, and **TXT** files.
+  * Captures file metadata (creation/modification times, paths) automatically.
+* **🗄️ Relational Database Connector (`MySQLProducer`)**:
+  * Scans table schemas, column types, primary keys, and foreign keys.
+  * Auto-generates clean Markdown schema tables.
+  * Automatically maps foreign keys into **relative markdown links** (forming a semantic entity graph).
+  * Automatically handles SSL negotiation for secure databases (e.g. AWS RDS or Aiven).
+* **🍃 NoSQL MongoDB Connector (`MongoDBProducer`)**:
+  * Samples documents from specified collections to **dynamically infer BSON schema structures**.
+  * Outputs collection concepts with type structures mapped to Markdown.
+* **🛠️ Command Line Interface (`google-okf` CLI)**:
+  * `google-okf init`: Bootstrap a blank bundle.
+  * `google-okf produce`: Run connectors using command arguments or a YAML configuration file.
+  * `google-okf lint`: Verify YAML syntax, required frontmatter fields, and check for broken relative links.
+* **🏗️ Extensible `BaseProducer`**:
+  * Easy-to-use abstract interface to write custom connectors for any proprietary data source (e.g., Notion, Jira, Slack, S3).
+* **🤖 Modern CI/CD Publishing**:
+  * Verified unit tests running across Python `3.12`, `3.13`, `3.14`, and `3.15` on Windows, macOS M1/M2, and Linux.
+  * Secure release deployments using **OIDC Trusted Publishing** to PyPI.
 
 ---
 
@@ -183,6 +218,31 @@ cd Open_Knowledge_Format
 uv sync
 uv run python -m unittest discover tests
 ```
+
+---
+
+## 🗺️ Roadmap & Upcoming Features
+
+To bridge the gap between raw enterprise datasets and production-grade RAG, we are actively developing the following extensions:
+
+* **🚀 Multimodal Document & Layout Parsing**
+  * **Current Limit**: Flat-file extraction only captures raw textual content, ignoring images, flow structures, and tabular data layouts.
+  * **Upcoming Upgrade**: Integration of multimodal layout-aware OCR (e.g. LayoutParser, PyMuPDF) to automatically extract nested tables and convert embedded images/diagrams directly into vector-compatible Markdown representations.
+  
+* **🔌 Enterprise-Grade Connectors**
+  * **Current Limit**: Supports PDF/DOCX flat files, MySQL, and MongoDB.
+  * **Upcoming Upgrade**: Native support for **PostgreSQL**, cloud data warehouses (BigQuery, Snowflake), and enterprise suite systems like **SAP** to automatically map large enterprise resource networks into OKF.
+
+* **🧠 Semantic Relation Auto-Discovery**
+  * **Upcoming Upgrade**: Machine learning utilities to automatically scan imported markdown documents, detect semantic linkages (e.g., table-to-table dependencies, topic cross-references), and write relative markdown links to build a Graph-RAG-ready schema tree.
+
+---
+
+## 👤 Author
+
+* **Sachin Mishra**  
+  * 📧 Email: [sachinmishra.ux@gmail.com](mailto:sachinmishra.ux@gmail.com)
+  * 🐙 GitHub: [@SachinMishra-ux](https://github.com/SachinMishra-ux)
 
 ---
 
