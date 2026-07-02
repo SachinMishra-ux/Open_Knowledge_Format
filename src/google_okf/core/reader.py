@@ -46,7 +46,7 @@ def read_bundle(bundle_dir: Union[Path, str]) -> Dict[str, Concept]:
             full_path = Path(root) / file
             # Compute relative path as Concept ID
             rel_path = full_path.relative_to(bundle_path)
-            concept_id = str(rel_path.with_suffix(""))
+            concept_id = str(rel_path.with_suffix("")).replace("\\", "/")
             
             try:
                 concepts[concept_id] = read_concept(full_path)
