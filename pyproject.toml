@@ -1,7 +1,44 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
 [project]
-name = "open-knowledge-format"
+name = "google-okf"
 version = "0.1.0"
-description = "Add your description here"
+description = "A Python library to generate Google Open Knowledge Format (OKF) bundles from various data sources."
 readme = "README.md"
 requires-python = ">=3.12"
-dependencies = []
+authors = [
+    { name = "Sachin Mishra", email = "sachinmishra.ux@gmail.com" }
+]
+license = { text = "MIT" }
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+    "Topic :: Database :: Database Engines/Servers"
+]
+keywords = ["google", "okf", "open-knowledge-format", "rag", "database", "parser", "producer"]
+
+[project.urls]
+Homepage = "https://github.com/SachinMishra-ux/Open_Knowledge_Format"
+Repository = "https://github.com/SachinMishra-ux/Open_Knowledge_Format"
+"Bug Tracker" = "https://github.com/SachinMishra-ux/Open_Knowledge_Format/issues"
+
+dependencies = [
+    "pydantic>=2.0.0",
+    "pyyaml>=6.0.0",
+    "click>=8.0.0",
+    "sqlalchemy>=2.0.0",
+    "pymysql>=1.1.0",
+    "pymongo>=4.0.0",
+    "pypdf>=4.0.0",
+    "python-docx>=1.0.0",
+    "cryptography>=3.1.0"
+]
+
+[project.scripts]
+google-okf = "google_okf.cli:cli"
