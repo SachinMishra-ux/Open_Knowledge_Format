@@ -241,7 +241,7 @@ To bridge the gap between raw enterprise datasets and production-grade RAG, we a
 ## 👤 Author
 
 * **Sachin Mishra**  
-  * 📧 Email: [sachinmishra.ux@gmail.com](mailto:sachinmishra.ux@gmail.com)
+  * 📧 Email: [sachin19566@gmail.com](mailto:sachin19566@gmail.com)
   * 🐙 GitHub: [@SachinMishra-ux](https://github.com/SachinMishra-ux)
 
 ---
